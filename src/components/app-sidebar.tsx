@@ -1,4 +1,4 @@
-import { Calendar, Home, Inbox, Search, Settings } from "lucide-react"
+import { MessageCircleIcon } from "lucide-react"
 
 import {
     Sidebar,
@@ -11,44 +11,47 @@ import {
     SidebarMenuItem,
 } from "@/components/ui/sidebar"
 
-// Menu items.
-const items = [
+import { Button } from "@/components/ui/button"
+
+const chatHistory = [
     {
-        title: "Home",
+        title: "Project Brainstorm",
         url: "#",
-        icon: Home,
+        icon: MessageCircleIcon,
     },
     {
-        title: "Inbox",
+        title: "Bug Fix Discussion",
         url: "#",
-        icon: Inbox,
+        icon: MessageCircleIcon,
     },
     {
-        title: "Calendar",
+        title: "Team Sync 2024-04-01",
         url: "#",
-        icon: Calendar,
+        icon: MessageCircleIcon,
     },
     {
-        title: "Search",
+        title: "API Design Notes",
         url: "#",
-        icon: Search,
-    },
-    {
-        title: "Settings",
-        url: "#",
-        icon: Settings,
+        icon: MessageCircleIcon,
     },
 ]
 
 export function AppSidebar() {
     return (
-        <Sidebar>
-            <SidebarContent>
+        <Sidebar className="">
+            <SidebarContent className="p-2">
                 <SidebarGroup>
-                    <SidebarGroupLabel>Application</SidebarGroupLabel>
+                    <SidebarGroupContent>
+                        <Button variant="outline" className="w-full">
+                            Create new conversation
+                        </Button>
+                    </SidebarGroupContent>
+
+                    <SidebarGroupLabel className="">Chat History</SidebarGroupLabel>
+
                     <SidebarGroupContent>
                         <SidebarMenu>
-                            {items.map((item) => (
+                            {chatHistory.map((item) => (
                                 <SidebarMenuItem key={item.title}>
                                     <SidebarMenuButton asChild>
                                         <a href={item.url}>
